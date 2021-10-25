@@ -1,0 +1,89 @@
+.city {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 500px;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: white;
+  margin: 20px auto;
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.1);
+}
+
+.city button {
+  background-color: rgba(0, 0, 0, 0.01);
+  border: none;
+  color: white;
+  padding: 10px 10px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 100px;
+  display: inline-block;
+  cursor: pointer;
+  margin: 5px;
+
+  transition: 0.2s background-color ease-in-out;
+}
+
+.city button:disabled {
+  background-color: rgba(0, 0, 0, 0.05) !important;
+  opacity: 0.5 !important;
+  cursor: default;
+}
+
+.city button:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.city h4 {
+  color: rgb(101, 101, 101);
+  width: 100%;
+  text-align: center;
+}
+
+.votes {
+  width: 100%;
+  text-align: center;
+  color: rgb(184, 184, 184);
+}
+
+.votes::after {
+  content: " voto(s)";
+}
+
+.body {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: auto auto;
+}
+
+.image {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100px;
+  width: 100px;
+  height: 100px;
+  max-width: 100px;
+  max-height: 100px;
+  min-width: 100px;
+  min-height: 100px;
+  overflow: hidden;
+}
+
+.image > img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200%;
+  margin: auto auto;
+}
