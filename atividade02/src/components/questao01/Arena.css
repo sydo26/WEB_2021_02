@@ -1,0 +1,35 @@
+.arena {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  height: auto;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.1);
+  margin: 20px 0;
+}
+
+.arena .arena-vs {
+  width: 100%;
+  max-width: 100px;
+  margin: 5% 5%;
+}
+
+.arena .arena-vs > img {
+  width: 100%;
+}
+
+.arena-body {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.arena h3 {
+  width: 100%;
+  text-align: center;
+  color: rgba(101, 101, 101);
+}
