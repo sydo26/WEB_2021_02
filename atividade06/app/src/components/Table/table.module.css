@@ -1,0 +1,41 @@
+.table {
+  border-spacing: 1;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 6px;
+  overflow: hidden;
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.1);
+  margin: 20px auto;
+}
+
+.table * {
+  position: relative;
+}
+
+.table > thead tr {
+  height: 60px;
+  background: #ffe078;
+  font-size: 16px;
+}
+
+.table > thead td {
+  text-align: center;
+}
+
+.table > tbody tr {
+  height: 48px;
+  border-bottom: 1px solid #e3f1d5;
+}
+
+.table > tbody td {
+  padding: 12px;
+  text-align: center;
+}
+
+.table > tbody tr:last-child {
+  border: 0;
+}
