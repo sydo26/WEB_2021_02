@@ -23,18 +23,18 @@ export interface IStudentUpdate {
 
 export class StudentService {
   public static async findAll(): Promise<IStudent[]> {
-    return api.get("/students");
+    return api.get("/students").then((res) => res.data);
   }
 
   public static async store(student: IStudentCreate) {
-    return api.post("/student", student);
+    return api.post("/student", student).then((res) => res.data);
   }
 
   public static async update(student: IStudentUpdate) {
-    return api.put("/student", student);
+    return api.put("/student", student).then((res) => res.data);
   }
 
   public static async delete(id: string) {
-    return api.delete(`/student/${id}`);
+    return api.delete(`/student/${id}`).then((res) => res.data);
   }
 }
