@@ -1,53 +1,19 @@
 version: '3.9'
 
 services:
-  mongodb-primary:
-    image: 'docker.io/bitnami/mongodb:latest'
+  mongodb:
+    image: 'docker.io/bitnami/mongodb:5.0-debian-10'
     restart: always
-    ports:
-      - 27017:27017
     environment:
-      - MONGODB_REPLICA_SET_MODE=primary
-      - MONGODB_REPLICA_SET_NAME=rs0
-      - MONGODB_REPLICA_SET_KEY=replicasetkey123
       - MONGODB_ROOT_PASSWORD=docker
-      - MONGODB_ADVERTISED_HOSTNAME=mongodb-primary
       - MONGODB_USERNAME=user
       - MONGODB_PASSWORD=docker
       - MONGODB_DATABASE=weba
+    ports:
+      - "27017:27017"
     volumes:
-      - 'mongodb_master_data:/bitnami/mongodb'
-
-  mongodb-secondary:
-    image: 'docker.io/bitnami/mongodb:latest'
-    depends_on:
-      - mongodb-primary
-    ports:
-      - 27018:27017
-    environment:
-      - MONGODB_REPLICA_SET_MODE=secondary
-      - MONGODB_REPLICA_SET_NAME=rs0
-      - MONGODB_REPLICA_SET_KEY=replicasetkey123
-      - MONGODB_ADVERTISED_HOSTNAME=mongodb-secondary
-      - MONGODB_INITIAL_PRIMARY_HOST=mongodb-primary
-      - MONGODB_INITIAL_PRIMARY_ROOT_PASSWORD=docker
-      - MONGODB_PRIMARY_PORT_NUMBER=27017
-
-  mongodb-arbiter:
-    image: 'docker.io/bitnami/mongodb:latest'
-    depends_on:
-      - mongodb-primary
-    ports:
-      - 27019:27017
-    environment:
-      - MONGODB_REPLICA_SET_MODE=arbiter
-      - MONGODB_REPLICA_SET_NAME=rs0
-      - MONGODB_REPLICA_SET_KEY=replicasetkey123
-      - MONGODB_ADVERTISED_HOSTNAME=mongodb-arbiter
-      - MONGODB_INITIAL_PRIMARY_HOST=mongodb-primary
-      - MONGODB_INITIAL_PRIMARY_ROOT_PASSWORD=docker
-      - MONGODB_PRIMARY_PORT_NUMBER=27017
+      - 'mongodb_data:/bitnami/mongodb'
 
 volumes:
-  mongodb_master_data:
+  mongodb_data:
     driver: local

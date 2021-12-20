@@ -7,6 +7,12 @@ class StudentServiceClass {
     return StudentModel.find();
   }
 
+  async find(id: string): Promise<StudentStoreDto | null> {
+    return StudentModel.findOne({ _id: id })
+      .then((res) => res)
+      .catch((err) => null);
+  }
+
   async store({ registration, name, course, ira }: StudentStoreDto) {
     return StudentModel.create({
       registration,
@@ -19,7 +25,7 @@ class StudentServiceClass {
   async update(id: string, { course, ira, name }: StudentUpdateDto) {
     const existsStudent = await StudentModel.findOne({ _id: id });
 
-    if (!existsStudent) throw Error("Not found student");
+    if (!existsStudent) return null;
 
     return StudentModel.updateOne(
       { _id: id },
