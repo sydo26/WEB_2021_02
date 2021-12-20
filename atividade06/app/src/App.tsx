@@ -33,16 +33,20 @@ function App() {
 
   const [registerModalHidden, setRegisterModalHidden] = useState(true);
 
+  async function updateList() {
+    const students = await StudentService.findAll();
+    console.log(process.env.REACT_APP_ENDPOINT_API);
+    console.log(students);
+    setData(
+      students.map((s) => {
+        return { value: { ...s, actions: <p>...</p> } };
+      })
+    );
+  }
+
   useEffect(() => {
     (async () => {
-      const students = await StudentService.findAll();
-      console.log(process.env.REACT_APP_ENDPOINT_API);
-      console.log(students);
-      setData(
-        students.map((s) => {
-          return { value: { ...s, actions: <p>...</p> } };
-        })
-      );
+      updateList();
     })();
 
     return () => {
@@ -69,7 +73,12 @@ function App() {
       return alert("Preencha todos os campos para realizar o cadastro!");
 
     const result = await StudentService.store(data);
-    console.log(result);
+
+    if (result) {
+      alert("Registrado com sucesso!");
+      setRegisterModalHidden(true);
+      await updateList();
+    }
   }
 
   return (
