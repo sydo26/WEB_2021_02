@@ -28,14 +28,18 @@ const Table: React.FC<TableProps> = ({ data = [], colunms = [] }) => {
           </tr>
         </thead>
         <tbody>
-          {data.map((obj) => {
-            return colunms.map((colunm) => {
-              return (
-                <td key={`obj_${colunm.identification}`}>
-                  {obj.value[colunm.identification]}
-                </td>
-              );
-            });
+          {data.map((obj, idx) => {
+            return (
+              <tr key={idx}>
+                {colunms.map((colunm) => {
+                  return (
+                    <td key={`obj_${colunm.identification}`}>
+                      {obj.value[colunm.identification]}
+                    </td>
+                  );
+                })}
+              </tr>
+            );
           })}
         </tbody>
       </table>

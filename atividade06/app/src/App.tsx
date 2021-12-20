@@ -45,6 +45,10 @@ function App() {
   }
 
   useEffect(() => {
+    console.log(data);
+  }, [data]);
+
+  useEffect(() => {
     (async () => {
       updateList();
     })();
