@@ -1,0 +1,93 @@
+.modal {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  border: 0;
+  overflow: hidden;
+  z-index: 999;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.container {
+  position: relative;
+  margin-top: 4rem;
+  padding: 2rem;
+  width: 100%;
+  max-width: 880px;
+  min-width: 280px;
+  background-color: white;
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.1);
+  z-index: 999;
+  border-radius: 5px;
+}
+
+.header {
+  position: relative;
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 6px;
+  display: inline-flex;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  height: auto;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.title {
+  position: relative;
+  color: #333333;
+  width: auto;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.subtitle {
+  position: relative;
+  text-align: center;
+  vertical-align: middle;
+  color: #888888;
+  width: auto;
+  font-size: 14px;
+  font-weight: 400;
+  margin-left: 8px;
+  height: 100%;
+  margin-top: 4px;
+}
+
+.subtitle::before {
+  content: " - ";
+}
+
+.close {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  background-color: transparent;
+  width: 24px;
+  height: 24px;
+  right: 20px;
+  top: 20px;
+  cursor: pointer;
+  z-index: 9999;
+}
+
+.close::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  content: "🗙";
+}
